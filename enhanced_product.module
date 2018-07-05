@@ -100,6 +100,30 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
             ])
             ->setDisplayConfigurable('view', true)
             ->setDisplayConfigurable('form', true);
+
+      $fields['categories'] = BaseFieldDefinition::create('entity_reference')
+        ->setLabel(t('分类'))
+        ->setDescription(t('The categories of the Product belong to.'))
+        ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+        ->setRevisionable(TRUE)
+        ->setSetting('target_type', 'taxonomy_term')
+        ->setSetting('handler', 'default')
+        ->setSetting('handler_settings', [
+          'target_bundles' => [
+            'product_categories'
+          ]
+        ])
+        ->setTranslatable(FALSE)
+        ->setDisplayOptions('view', [
+          'label' => 'above',
+          'type' => 'entity_reference_label'
+        ])
+        ->setDisplayOptions('form', [
+          'type' => 'options_buttons',
+          'weight' => 2
+        ])
+        ->setDisplayConfigurable('form', TRUE)
+        ->setDisplayConfigurable('view', TRUE);
     }
 
     return $fields;
