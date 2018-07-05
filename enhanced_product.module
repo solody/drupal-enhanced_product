@@ -102,39 +102,5 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
             ->setDisplayConfigurable('form', true);
     }
 
-    if ($entity_type->id() == 'commerce_product_variation') {
-
-        $fields['stock'] = BaseFieldDefinition::create('integer')
-            ->setLabel(t('库存'))
-            ->setDescription(t('该规格的即时库存量。'))
-            ->setReadOnly(TRUE)
-            ->setSetting('unsigned', TRUE)
-            ->setSetting('min', 0)
-            ->setDefaultValue(0)
-            ->setDisplayOptions('view', [
-                'type' => 'number_integer'
-            ])
-            ->setDisplayOptions('form', [
-                'type' => 'number'
-            ])
-            ->setDisplayConfigurable('view', true)
-            ->setDisplayConfigurable('form', true);
-
-        $fields['sales'] = BaseFieldDefinition::create('integer')
-            ->setLabel(t('销量'))
-            ->setDescription(t('该规格的历史总销量。'))
-            ->setReadOnly(TRUE)
-            ->setSetting('unsigned', TRUE)
-            ->setSetting('min', 0)
-            ->setDefaultValue(0)
-            ->setDisplayOptions('view', [
-                'type' => 'number_integer'
-            ])
-            ->setDisplayOptions('form', [
-                'type' => 'readonly_field_widget'
-            ])
-            ->setDisplayConfigurable('view', true)
-            ->setDisplayConfigurable('form', true);
-    }
     return $fields;
 }
