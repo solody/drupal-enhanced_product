@@ -51,7 +51,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
             ->setSettings([
                 'file_directory' => 'commerce/product/image/[date:custom:Y]-[date:custom:m]',
                 'file_extensions' => 'png gif jpg jpeg',
-                'max_filesize' => '500 KB',
+                'max_filesize' => '5 MB',
                 'max_resolution' => '',
                 'min_resolution' => '',
                 'alt_field' => false,
@@ -79,7 +79,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
             ->setSettings([
                 'file_directory' => 'commerce/product/detail_images/[date:custom:Y]-[date:custom:m]',
                 'file_extensions' => 'png gif jpg jpeg',
-                'max_filesize' => '500 KB',
+                'max_filesize' => '5 MB',
                 'max_resolution' => '',
                 'min_resolution' => '',
                 'alt_field' => false,
