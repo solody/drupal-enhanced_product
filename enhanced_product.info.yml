@@ -6,3 +6,4 @@ package: 'Custom'
 dependencies:
   - commerce_product
   - readonly_field_widget
+  - taxonomy
