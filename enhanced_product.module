@@ -46,7 +46,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
     if ($entity_type->id() == 'commerce_product') {
 
         $fields['image'] = BaseFieldDefinition::create('image')
-            ->setLabel(t('主图'))
+            ->setLabel(t('封面图'))
             ->setCardinality(1)
             ->setSettings([
                 'file_directory' => 'commerce/product/image/[date:custom:Y]-[date:custom:m]',
@@ -74,7 +74,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
             ->setDisplayConfigurable('form', true);
 
         $fields['detail_images'] = BaseFieldDefinition::create('image')
-            ->setLabel(t('细节图'))
+            ->setLabel(t('轮播图'))
             ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
             ->setSettings([
                 'file_directory' => 'commerce/product/detail_images/[date:custom:Y]-[date:custom:m]',
@@ -103,7 +103,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
 
       $fields['categories'] = BaseFieldDefinition::create('entity_reference')
         ->setLabel(t('分类'))
-        ->setDescription(t('The categories of the Product belong to.'))
+        ->setDescription(t('产品所属的分类，单个产品可属于多个分类。'))
         ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
         ->setRevisionable(TRUE)
         ->setSetting('target_type', 'taxonomy_term')
