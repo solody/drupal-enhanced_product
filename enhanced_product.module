@@ -41,90 +41,90 @@ function enhanced_product_theme() {
  * Implements hook_entity_base_field_info().
  */
 function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_type) {
-    $fields = [];
+  $fields = [];
 
-    if ($entity_type->id() == 'commerce_product') {
+  if ($entity_type->id() == 'commerce_product') {
 
-        $fields['image'] = BaseFieldDefinition::create('image')
-            ->setLabel(t('封面图'))
-            ->setCardinality(1)
-            ->setSettings([
-                'file_directory' => 'commerce/product/image/[date:custom:Y]-[date:custom:m]',
-                'file_extensions' => 'png gif jpg jpeg',
-                'max_filesize' => '5 MB',
-                'max_resolution' => '',
-                'min_resolution' => '',
-                'alt_field' => false,
-                'alt_field_required' => true,
-                'title_field' => false,
-                'title_field_required' => false,
-                'handler' => 'default:file',
-                'handler_settings' => []
-            ])
-            ->setDisplayOptions('view', [
-                'label' => 'above',
-                'type' => 'image',
-                'weight' => -6
-            ])
-            ->setDisplayOptions('form', [
-                'type' => 'image_image',
-                'weight' => -6
-            ])
-            ->setDisplayConfigurable('view', true)
-            ->setDisplayConfigurable('form', true);
+    $fields['image'] = BaseFieldDefinition::create('image')
+      ->setLabel(t('Main Image'))
+      ->setCardinality(1)
+      ->setSettings([
+        'file_directory' => 'commerce/product/image/[date:custom:Y]-[date:custom:m]',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '5 MB',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => false,
+        'alt_field_required' => true,
+        'title_field' => false,
+        'title_field_required' => false,
+        'handler' => 'default:file',
+        'handler_settings' => []
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'image',
+        'weight' => -6
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'image_image',
+        'weight' => -6
+      ])
+      ->setDisplayConfigurable('view', true)
+      ->setDisplayConfigurable('form', true);
 
-        $fields['detail_images'] = BaseFieldDefinition::create('image')
-            ->setLabel(t('轮播图'))
-            ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
-            ->setSettings([
-                'file_directory' => 'commerce/product/detail_images/[date:custom:Y]-[date:custom:m]',
-                'file_extensions' => 'png gif jpg jpeg',
-                'max_filesize' => '5 MB',
-                'max_resolution' => '',
-                'min_resolution' => '',
-                'alt_field' => false,
-                'alt_field_required' => true,
-                'title_field' => false,
-                'title_field_required' => false,
-                'handler' => 'default:file',
-                'handler_settings' => []
-            ])
-            ->setDisplayOptions('view', [
-                'label' => 'above',
-                'type' => 'image',
-                'weight' => -6
-            ])
-            ->setDisplayOptions('form', [
-                'type' => 'image_image',
-                'weight' => -6
-            ])
-            ->setDisplayConfigurable('view', true)
-            ->setDisplayConfigurable('form', true);
+    $fields['detail_images'] = BaseFieldDefinition::create('image')
+      ->setLabel(t('Detail Images'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setSettings([
+        'file_directory' => 'commerce/product/detail_images/[date:custom:Y]-[date:custom:m]',
+        'file_extensions' => 'png gif jpg jpeg',
+        'max_filesize' => '5 MB',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => false,
+        'alt_field_required' => true,
+        'title_field' => false,
+        'title_field_required' => false,
+        'handler' => 'default:file',
+        'handler_settings' => []
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'image',
+        'weight' => -6
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'image_image',
+        'weight' => -6
+      ])
+      ->setDisplayConfigurable('view', true)
+      ->setDisplayConfigurable('form', true);
 
-      $fields['categories'] = BaseFieldDefinition::create('entity_reference')
-        ->setLabel(t('分类'))
-        ->setDescription(t('产品所属的分类，单个产品可属于多个分类。'))
-        ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
-        ->setRevisionable(TRUE)
-        ->setSetting('target_type', 'taxonomy_term')
-        ->setSetting('handler', 'default')
-        ->setSetting('handler_settings', [
-          'target_bundles' => [
-            'product_categories'
-          ]
-        ])
-        ->setTranslatable(FALSE)
-        ->setDisplayOptions('view', [
-          'label' => 'above',
-          'type' => 'entity_reference_label'
-        ])
-        ->setDisplayOptions('form', [
-          'type' => 'options_buttons',
-          'weight' => 2
-        ])
-        ->setDisplayConfigurable('form', TRUE)
-        ->setDisplayConfigurable('view', TRUE);
-    }
+    $fields['categories'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Categories'))
+      ->setDescription(t('One product can belong to one or more categories.'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setRevisionable(TRUE)
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setSetting('handler', 'default')
+      ->setSetting('handler_settings', [
+        'target_bundles' => [
+          'product_categories'
+        ]
+      ])
+      ->setTranslatable(FALSE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'options_buttons',
+        'weight' => 2
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  }
 
-    return $fields;
+  return $fields;
 }

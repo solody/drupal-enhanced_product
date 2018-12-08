@@ -1,7 +1,7 @@
-langcode: zh-hans
+langcode: en
 status: true
 dependencies: {  }
-name: 产品分类
+name: 'Product Categories'
 vid: product_categories
 description: ''
 hierarchy: 0

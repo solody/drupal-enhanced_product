@@ -1,4 +1,4 @@
-langcode: zh-hans
+langcode: en
 status: true
 dependencies:
   config:
@@ -41,13 +41,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: 应用
+          submit_button: Apply
           reset_button: false
-          reset_button_label: 重置
-          exposed_sorts_label: 排序依据
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort By'
           expose_sort_order: true
-          sort_asc_label: 升序
-          sort_desc_label: 降序
+          sort_asc_label: ASC
+          sort_desc_label: DESC
       pager:
         type: mini
         options:
@@ -57,12 +57,12 @@ display:
           total_pages: null
           expose:
             items_per_page: false
-            items_per_page_label: 每页条目数
+            items_per_page_label: 'Page size'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- 全部 -'
+            items_per_page_options_all_label: '- All -'
             offset: false
-            offset_label: 偏移量
+            offset_label: Offset
           tags:
             previous: ‹‹
             next: ››
