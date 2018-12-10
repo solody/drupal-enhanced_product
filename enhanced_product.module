@@ -7,6 +7,7 @@
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Link;
 use Drupal\Core\Routing\RouteMatchInterface;
 
 /**
@@ -47,6 +48,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
 
     $fields['image'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Main Image'))
+      ->setDescription(t('Image to show overview of the product.'))
       ->setCardinality(1)
       ->setSettings([
         'file_directory' => 'commerce/product/image/[date:custom:Y]-[date:custom:m]',
@@ -75,6 +77,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
 
     $fields['detail_images'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Detail Images'))
+      ->setDescription(t('Images to show details of product.'))
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setSettings([
         'file_directory' => 'commerce/product/detail_images/[date:custom:Y]-[date:custom:m]',
@@ -103,9 +106,13 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
 
     $fields['categories'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Categories'))
-      ->setDescription(t('One product can belong to one or more categories.'))
+      ->setDescription(t('One product can belong to one or more categories.') .
+        Link::createFromRoute(t('Manage categories'), 'entity.taxonomy_vocabulary.overview_form', [
+          'taxonomy_vocabulary' => 'product_categories'
+        ])->toString())
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setRevisionable(TRUE)
+      ->setSetting('display_description', true)
       ->setSetting('target_type', 'taxonomy_term')
       ->setSetting('handler', 'default')
       ->setSetting('handler_settings', [
