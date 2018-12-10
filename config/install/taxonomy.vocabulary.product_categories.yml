@@ -1,6 +1,9 @@
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  enforced:
+    module:
+      - enhanced_product
 name: 'Product Categories'
 vid: product_categories
 description: ''
