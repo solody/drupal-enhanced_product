@@ -106,10 +106,11 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
 
     $fields['categories'] = BaseFieldDefinition::create('entity_reference')
       ->setLabel(t('Categories'))
-      ->setDescription(t('One product can belong to one or more categories.') .
-        Link::createFromRoute(t('Manage categories'), 'entity.taxonomy_vocabulary.overview_form', [
+      ->setDescription(t('One product can belong to one or more categories.<a href=":url">Manage categories</a>', [
+        ':url' => Link::createFromRoute(t('Manage categories'), 'entity.taxonomy_vocabulary.overview_form', [
           'taxonomy_vocabulary' => 'product_categories'
-        ])->toString())
+        ])->getUrl()->toString()
+      ]))
       ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
       ->setRevisionable(TRUE)
       ->setSetting('display_description', true)
