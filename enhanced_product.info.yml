@@ -4,10 +4,10 @@ description: 'Provides enhanced product features for commerce product.'
 core: 8.x
 package: Custom
 dependencies:
-  - commerce_product
-  - readonly_field_widget
-  - rest
-  - serialization
-  - taxonomy
-  - user
-  - views
+  - commerce:commerce_product
+  - readonly_field_widget:readonly_field_widget
+  - drupal:rest
+  - drupal:serialization
+  - drupal:taxonomy
+  - drupal:user
+  - drupal:views
