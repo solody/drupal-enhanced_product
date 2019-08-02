@@ -11,6 +11,7 @@
     "source": "http://cgit.drupalcode.org/enhanced_product"
   },
   "require": {
-    "drupal/readonly_field_widget": "^1.0"
+    "drupal/readonly_field_widget": "^1.0",
+    "drupal/features": "^3.8"
   }
 }

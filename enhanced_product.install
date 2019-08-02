@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * HOOK_install()
+ */
+function enhanced_product_install(){
+  //\Drupal::config('core.entity_form_display.commerce_product_variation.default.default.yml')->delete();
+}
