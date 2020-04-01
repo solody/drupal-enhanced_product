@@ -9,7 +9,7 @@ id: commerce_product_variation.default.attribute_size
 field_name: attribute_size
 entity_type: commerce_product_variation
 bundle: default
-label: 'Size'
+label: Size
 description: ''
 required: true
 translatable: false

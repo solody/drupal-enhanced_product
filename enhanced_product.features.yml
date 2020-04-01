@@ -1,1 +1,2 @@
-true
+required:
+  - core.entity_view_display.commerce_product_variation.default.summary

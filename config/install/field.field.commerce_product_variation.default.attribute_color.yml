@@ -9,7 +9,7 @@ id: commerce_product_variation.default.attribute_color
 field_name: attribute_color
 entity_type: commerce_product_variation
 bundle: default
-label: 'Color'
+label: Color
 description: ''
 required: true
 translatable: false

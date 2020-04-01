@@ -2,5 +2,5 @@ langcode: en
 status: true
 dependencies: {  }
 id: size
-label: 'Size'
+label: Size
 elementType: commerce_product_rendered_attribute
