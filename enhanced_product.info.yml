@@ -13,4 +13,5 @@ dependencies:
   - 'features:features'
   - field
   - text
+  - image
 core_incompatible: false

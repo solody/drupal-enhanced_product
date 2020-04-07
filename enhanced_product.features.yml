@@ -1,2 +1,4 @@
 required:
   - core.entity_view_display.commerce_product_variation.default.summary
+  - field.field.commerce_product.default.field_comments
+  - field.storage.commerce_product.field_comments
