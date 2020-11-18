@@ -5,6 +5,7 @@
  * Contains enhanced_product.module.
  */
 
+use Drupal\comment\Plugin\Field\FieldType\CommentItemInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Link;
@@ -126,6 +127,50 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ->setDisplayOptions('form', [
         'type' => 'options_buttons',
         'weight' => 2
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['brand'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Brand'))
+      ->setDescription(t('One product can only belong to one brand.<a href=":url">Manage brands</a>', [
+        ':url' => '/admin/structure/taxonomy/manage/product_brands/overview']))
+      ->setCardinality(1)
+      ->setRevisionable(TRUE)
+      ->setSetting('display_description', true)
+      ->setSetting('target_type', 'taxonomy_term')
+      ->setSetting('handler', 'default')
+      ->setSetting('handler_settings', [
+        'target_bundles' => [
+          'product_brands'
+        ]
+      ])
+      ->setTranslatable(FALSE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_label'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'options_buttons',
+        'weight' => 2
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
+    $fields['comments'] = BaseFieldDefinition::create('comment')
+      ->setLabel(t('Comments'))
+      ->setDescription(t('Comments of the product.'))
+      ->setSetting('comment_type', 'product_comments')
+      ->setDefaultValue([
+        'status' => CommentItemInterface::OPEN,
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'comment_default'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'comment_default',
+        'weight' => 20
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);

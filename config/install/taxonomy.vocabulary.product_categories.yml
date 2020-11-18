@@ -4,7 +4,7 @@ dependencies:
   enforced:
     module:
       - enhanced_product
-name: 'Product Categories'
+name: 'Product categories'
 vid: product_categories
 description: ''
 weight: 0
