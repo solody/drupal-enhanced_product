@@ -164,6 +164,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ->setDefaultValue([
         'status' => CommentItemInterface::OPEN,
       ])
+      ->setSetting('preview', 0)
       ->setDisplayOptions('view', [
         'label' => 'above',
         'type' => 'comment_default'
@@ -176,5 +177,29 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ->setDisplayConfigurable('view', TRUE);
   }
 
-  return $fields;
+  if ($entity_type->id() == 'commerce_product_variation') {
+
+    $fields['stock'] = BaseFieldDefinition::create('commerce_stock_level')
+      ->setLabel(t('Stock level'))
+      ->setDescription(t('Stock level of the product variation.'))
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'commerce_stock_level_simple'
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'commerce_stock_level_simple_transaction',
+        'weight' => 20
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+  }
+
+    return $fields;
+}
+
+/**
+ * Implements MODULE_preprocess_HOOK(&$variables)
+ */
+function enhanced_product_preprocess_commerce_product(&$variables){
+  $variables['comment_count'] = $variables['product_entity']->get('comments')->comment_count;
 }

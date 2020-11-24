@@ -12,6 +12,7 @@
   },
   "require": {
     "drupal/readonly_field_widget": "^1.0",
-    "drupal/features": "^3.8"
+    "drupal/features": "^3.8",
+    "drupal/commerce_stock" : "^1.0"
   }
 }

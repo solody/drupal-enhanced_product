@@ -14,4 +14,8 @@ dependencies:
   - field
   - text
   - image
+  - commerce_stock_ui
+  - commerce_stock_local
+  - commerce_stock_field
+  - commerce_stock_enforcement
 core_incompatible: false

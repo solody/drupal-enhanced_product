@@ -4,5 +4,8 @@
  * HOOK_install()
  */
 function enhanced_product_install(){
-  //\Drupal::config('core.entity_form_display.commerce_product_variation.default.default.yml')->delete();
+  \Drupal::configFactory()
+    ->getEditable('commerce_stock.service_manager')
+    ->set('default_service_id', 'local_stock')
+    ->save(TRUE);
 }
