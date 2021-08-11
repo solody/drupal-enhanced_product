@@ -4,18 +4,16 @@ description: 'Provides enhanced product features for commerce product.'
 core_version_requirement: ^8.8 || ^9
 package: Commerce
 dependencies:
-  - comment
-  - 'commerce:commerce'
-  - 'commerce:commerce_price'
-  - 'commerce:commerce_product'
-  - commerce_price
-  - commerce_product
-  - 'features:features'
-  - field
-  - text
-  - image
-  - commerce_stock_ui
-  - commerce_stock_local
-  - commerce_stock_field
-  - commerce_stock_enforcement
+  - drupal:comment
+  - commerce:commerce
+  - commerce:commerce_price
+  - commerce:commerce_product
+  - features:features
+  - drupal:field
+  - drupal:text
+  - drupal:image
+  - commerce_stock:commerce_stock_ui
+  - commerce_stock:commerce_stock_local
+  - commerce_stock:commerce_stock_field
+  - commerce_stock:commerce_stock_enforcement
 core_incompatible: false
