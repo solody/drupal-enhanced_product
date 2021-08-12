@@ -45,7 +45,7 @@ function enhanced_product_theme() {
 function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_type) {
   $fields = [];
 
-  if ($entity_type->id() == 'commerce_product') {
+  if ($entity_type->id() === 'commerce_product') {
 
     $fields['image'] = BaseFieldDefinition::create('image')
       ->setLabel(t('Main Image'))
@@ -177,7 +177,7 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ->setDisplayConfigurable('view', TRUE);
   }
 
-  if ($entity_type->id() == 'commerce_product_variation') {
+  if ($entity_type->id() === 'commerce_product_variation') {
 
     $fields['stock'] = BaseFieldDefinition::create('commerce_stock_level')
       ->setLabel(t('Stock level'))
@@ -194,7 +194,39 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ->setDisplayConfigurable('view', TRUE);
   }
 
-    return $fields;
+  if ($entity_type->id() === 'taxonomy_term') {
+
+    $fields['image'] = BaseFieldDefinition::create('image')
+      ->setLabel(t('Image'))
+      ->setDescription(t('Image represent this taxonomy term.'))
+      ->setCardinality(1)
+      ->setSettings([
+        'file_directory' => 'taxonomy/image/[date:custom:Y]-[date:custom:m]',
+        'file_extensions' => 'png gif jpg jpeg svg',
+        'max_filesize' => '5 MB',
+        'max_resolution' => '',
+        'min_resolution' => '',
+        'alt_field' => false,
+        'alt_field_required' => true,
+        'title_field' => false,
+        'title_field_required' => false,
+        'handler' => 'default:file',
+        'handler_settings' => []
+      ])
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'image',
+        'weight' => -3
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'image_image',
+        'weight' => -3
+      ])
+      ->setDisplayConfigurable('view', true)
+      ->setDisplayConfigurable('form', true);
+  }
+
+  return $fields;
 }
 
 /**

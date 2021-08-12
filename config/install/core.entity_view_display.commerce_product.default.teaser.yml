@@ -6,13 +6,31 @@ dependencies:
     - core.entity_view_mode.commerce_product.teaser
     - field.field.commerce_product.default.body
   module:
+    - comment
     - commerce_product
-    - image
+    - svg_image
 id: commerce_product.default.teaser
 targetEntityType: commerce_product
 bundle: default
 mode: teaser
 content:
+  brand:
+    label: above
+    type: entity_reference_label
+    region: content
+    weight: 3
+    settings:
+      link: true
+    third_party_settings: {  }
+  comments:
+    label: above
+    type: comment_default
+    region: content
+    weight: 4
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
   image:
     label: hidden
     type: image

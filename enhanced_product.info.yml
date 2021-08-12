@@ -1,19 +1,25 @@
 name: 'Enhanced Product'
 type: module
 description: 'Provides enhanced product features for commerce product.'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: '^8.9 || ^9'
 package: Commerce
 dependencies:
-  - drupal:comment
-  - commerce:commerce
-  - commerce:commerce_price
-  - commerce:commerce_product
-  - features:features
-  - drupal:field
-  - drupal:text
-  - drupal:image
-  - commerce_stock:commerce_stock_ui
-  - commerce_stock:commerce_stock_local
-  - commerce_stock:commerce_stock_field
-  - commerce_stock:commerce_stock_enforcement
+  - 'commerce:commerce'
+  - 'commerce:commerce_price'
+  - 'commerce:commerce_product'
+  - 'commerce_stock:commerce_stock_enforcement'
+  - 'commerce_stock:commerce_stock_field'
+  - 'commerce_stock:commerce_stock_local'
+  - 'commerce_stock:commerce_stock_ui'
+  - 'drupal:comment'
+  - 'drupal:content_translation'
+  - 'drupal:field'
+  - 'drupal:image'
+  - 'drupal:language'
+  - 'drupal:path'
+  - 'drupal:taxonomy'
+  - 'drupal:text'
+  - 'enhanced_product:enhanced_product'
+  - 'features:features'
+  - 'svg_image:svg_image'
 core_incompatible: false

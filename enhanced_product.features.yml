@@ -1,4 +1,14 @@
 required:
   - core.entity_view_display.commerce_product_variation.default.summary
-  - field.field.commerce_product.default.field_comments
-  - field.storage.commerce_product.field_comments
+  - core.base_field_override.comment.product_comments.changed
+  - core.base_field_override.comment.product_comments.created
+  - core.base_field_override.comment.product_comments.homepage
+  - core.base_field_override.comment.product_comments.hostname
+  - core.base_field_override.comment.product_comments.mail
+  - core.base_field_override.comment.product_comments.name
+  - core.base_field_override.comment.product_comments.status
+  - core.base_field_override.comment.product_comments.subject
+  - core.base_field_override.comment.product_comments.uid
+  - core.base_field_override.commerce_product.default.path
+  - language.content_settings.comment.product_comments
+  - language.content_settings.commerce_product.default
