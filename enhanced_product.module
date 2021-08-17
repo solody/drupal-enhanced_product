@@ -175,6 +175,31 @@ function enhanced_product_entity_base_field_info(EntityTypeInterface $entity_typ
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
+
+    $fields['related_products'] = BaseFieldDefinition::create('entity_reference')
+      ->setLabel(t('Related products'))
+      ->setDescription(t('Related products can be display in the full product detail page.'))
+      ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+      ->setRevisionable(TRUE)
+      ->setSetting('display_description', true)
+      ->setSetting('target_type', 'commerce_product')
+      ->setSetting('handler', 'default')
+      ->setSetting('handler_settings', [])
+      ->setTranslatable(FALSE)
+      ->setDisplayOptions('view', [
+        'label' => 'above',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'teaser',
+        ],
+      ])
+      ->setDisplayOptions('form', [
+        'type' => 'entity_reference_autocomplete',
+        'weight' => 2
+      ])
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
   }
 
   if ($entity_type->id() === 'commerce_product_variation') {
