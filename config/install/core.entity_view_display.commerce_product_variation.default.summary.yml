@@ -9,6 +9,7 @@ dependencies:
       - commerce_checkout
   module:
     - commerce_price
+    - commerce_stock_field
 id: commerce_product_variation.default.summary
 targetEntityType: commerce_product_variation
 bundle: default
@@ -31,6 +32,13 @@ content:
       link: true
     third_party_settings: {  }
     region: content
+  stock:
+    label: above
+    type: commerce_stock_level_simple
+    region: content
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
   title:
     label: hidden
     type: string
@@ -42,4 +50,5 @@ content:
 hidden:
   langcode: true
   price: true
+  search_api_excerpt: true
   sku: true

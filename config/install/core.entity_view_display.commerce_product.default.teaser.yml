@@ -40,6 +40,15 @@ content:
       image_style: ''
       image_link: content
     third_party_settings: {  }
+  related_products:
+    label: above
+    type: entity_reference_entity_view
+    settings:
+      view_mode: teaser
+      link: false
+    region: content
+    weight: 5
+    third_party_settings: {  }
   title:
     label: hidden
     type: string
