@@ -6,5 +6,5 @@ dependencies:
       - enhanced_product
 name: 'Product categories'
 vid: product_categories
-description: 'Taxonomy for products.'
+description: ''
 weight: 0
