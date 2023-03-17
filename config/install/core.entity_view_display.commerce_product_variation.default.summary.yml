@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.commerce_product_variation.summary
   module:
     - commerce_price
+    - commerce_stock_field
   enforced:
     module:
       - commerce_checkout
@@ -31,6 +32,13 @@ content:
       link: true
     third_party_settings: {  }
     region: content
+  stock:
+    label: above
+    type: commerce_stock_level_simple
+    region: content
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
   title:
     label: hidden
     type: string

@@ -8,7 +8,7 @@ dependencies:
   module:
     - comment
     - commerce_product
-    - image
+    - svg_image
 id: commerce_product.default.teaser
 targetEntityType: commerce_product
 bundle: default
@@ -41,6 +41,15 @@ content:
       image_link: content
       image_loading:
         attribute: lazy
+    third_party_settings: {  }
+  related_products:
+    label: above
+    type: entity_reference_entity_view
+    settings:
+      view_mode: teaser
+      link: false
+    region: content
+    weight: 5
     third_party_settings: {  }
   title:
     label: hidden
