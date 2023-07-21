@@ -1,7 +1,7 @@
 name: 'Enhanced Product'
 type: module
 description: 'Provides enhanced product features for commerce product.'
-core_version_requirement: '^8.9 || ^9'
+core_version_requirement: '^9 || ^10'
 package: Commerce
 dependencies:
   - 'commerce:commerce'
